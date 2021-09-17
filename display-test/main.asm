@@ -15,9 +15,9 @@ DDRA = $6003
 ; IOSETOUTS = #$ff
 
 
-E = %00000001
-RW = %00000010
-RS = %00000100
+E = %10000000
+RW = %01000000
+RS = %00100000
 
 
 
@@ -32,11 +32,11 @@ reset:
   ; initialize all PORTB pins (PB0.... PB7)
   
   ; lda #$ff
-  lda #$ff
+  lda #%11111111
   sta DDRB
   
   ; set DDRA pins 2,3,4 to OUTPUTS
-  lda #%00000111
+  lda #%11100000
   sta DDRA
   
   ; init LCD 
